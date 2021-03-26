@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>停止计时器</button>
+		<script>
+			var btn = document.querySelector('button');
+			var time = setTimeout(function() {
+				console.log('爆炸');
+			},1000)
+			btn.addEventListener('click', function() {
+				clearTimeout(time);
+			})
+		</script>
+	</body>
+</html>

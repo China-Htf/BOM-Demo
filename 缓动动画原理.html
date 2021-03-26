@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				position: absolute;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: #40B83F;
+			}
+
+			span {
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 150px;
+				width: 150px;
+				height: 150px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="btn500">开跑500</button>
+		<button class="btn800">开跑800</button>
+		<span>111</span>
+		<script>
+			var span = document.querySelector('span');
+			var btn500 = document.querySelector('.btn500');
+			var btn800 = document.querySelector('.btn800');
+
+			function animate(obj, target) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var slow = (target - obj.offsetLeft) / 10;
+					slow = slow > 0 ? Math.ceil(slow) : Math.floor(slow);
+					if (obj.offsetLeft == target) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style.left = obj.offsetLeft + slow + 'px';
+					}
+				}, 15);
+			}
+			btn500.addEventListener('click', function() {
+				animate(span, 500);
+			})
+			btn800.addEventListener('click', function() {
+				animate(span, 800);
+			})
+		</script>
+	</body>
+</html>

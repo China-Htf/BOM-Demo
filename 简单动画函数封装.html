@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				position: absolute;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: #40B83F;
+			}
+			span {
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 150px;
+				width: 150px;
+				height: 150px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<span>111</span>
+		<script>
+			var div = document.querySelector('div');
+			var span = document.querySelector('span');
+			function animate(obj, target) {
+				var timer = setInterval(function() {
+					if (obj.offsetLeft >= target) {
+						clearInterval(timer);
+					} else {
+						obj.style.left = obj.offsetLeft + 1 + 'px';
+					}
+				}, 1);
+			}
+			animate(div, 100);
+			animate(span, 200);
+		</script>
+	</body>
+</html>

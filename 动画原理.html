@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				position: absolute;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: #40B83F;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div = document.querySelector('div');
+			var timer = setInterval(function() {
+				if (div.offsetLeft >= 500) {
+					clearInterval(timer);
+				} else {
+					div.style.left = div.offsetLeft + 1 + 'px';
+				}
+			},1)
+		</script>
+	</body>
+</html>
